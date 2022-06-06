@@ -184,8 +184,9 @@ void resetWifi() {
   static long resettimer = 0;
   if (millis()>resettimer ) {
     resettimer = millis()+(1000*60*14);
+    
     digitalWrite(WIFI_RESET_PIN,LOW);
-    delay(200);
+    delay(500);
     digitalWrite(WIFI_RESET_PIN,HIGH);
   }else {
     return;
@@ -276,10 +277,18 @@ void sendData() {
   Serial.print(fukt[1]);
   Serial.println("}");
 
+  Serial.print("{\"s2\":");
+  Serial.print(fukt[2]);
+  Serial.println("}");
+
   Serial.print("{\"p1\":");
   Serial.print(pump_state[1]);
   Serial.println("}");
 
+  Serial.print("{\"p2\":");
+  Serial.print(pump_state[2]);
+  Serial.println("}");
+  
   Serial.print("{\"t1\":");
   Serial.print(t);
   Serial.println("}");
