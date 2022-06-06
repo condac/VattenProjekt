@@ -183,7 +183,7 @@ void loop() {
 void resetWifi() {
   static long resettimer = 0;
   if (millis()>resettimer ) {
-    resettimer = millis()+(1000*60*14);
+    resettimer = millis()+(1000*60*10);
     
     digitalWrite(WIFI_RESET_PIN,LOW);
     delay(500);
