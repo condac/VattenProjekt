@@ -265,7 +265,10 @@ void loop() {
   //wdt_reset();
   if (connectWifi()) {
     int constatus = mqtt.isConnected();
-    mqtt.loop();
+    if (sensor1>0 && sensor2>0) {
+      mqtt.loop();
+    
+    }
     //wdt_reset();
     if (constatus == 1) {
       //wdt_reset();
